@@ -1,4 +1,9 @@
-# Kirby Likes
+# Kirby Likes (respecting IP & userAgent)
+
+This is a simple modification of the original Kirby Plugin by medienbaecker.
+Added userAgent() to the hash so that several people in a houshold are able to use the button.
+
+--- 
 
 Kirby Likes adds routes, handy page methods and a panel field so you can easily add likes/hearts/votes to pages.
 
