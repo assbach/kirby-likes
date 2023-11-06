@@ -6,7 +6,7 @@ function like($page, $action) {
 	if(page($page) && in_array($action, $actions)) {
 		kirby()->impersonate('kirby');
 		$page = page($page);
-		$visitor = md5('v-' . kirby()->visitor()->ip());
+		$visitor = md5('v-' . kirby()->visitor()->ip() . kirby()->visitor()->userAgent() );		
 		if(strpos($page->likes(), $visitor) !== false) {
 			if($action == 'remove' OR $action == 'toggle') {
 				if(strpos($page->likes(), $visitor) !== false) {
@@ -90,7 +90,7 @@ Kirby::plugin('medienbaecker/likes', [
 		},
 		'hasLiked' => function() {
 			$likes = $this->likes()->split(';');
-			return in_array(md5('v-' . kirby()->visitor()->ip()), $likes);
+			return in_array(md5('v-' . kirby()->visitor()->ip() . kirby()->visitor()->userAgent() ), $likes);
 		},
 	],
 ]);
